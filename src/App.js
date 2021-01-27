@@ -35,6 +35,11 @@ function App() {
   const [open, setOpen] = useState(false);
   const [modalStyle] = useState(getModalStyle);
 
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+
+
   useEffect(() => {
     db.collection('posts').onSnapshot(snapshot => {
       setPosts(snapshot.docs.map(doc => ({
@@ -44,6 +49,9 @@ function App() {
       )
     });
   }, []);
+  const signup = () => {
+    
+  }
 
 
   return (
@@ -59,8 +67,30 @@ function App() {
   
     >
       <div style={modalStyle} className={classes.paper}>
-     <h2>I am model</h2>
+    
+            <center>
+                   <img className="app_headerImage" alt="Instagram" class="s4Iyt"
+                src={logo} />
+            </center>
+            <form>
+              <input
+                type="text"
+                placeholder="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}>
+              </input>
+              
+              <input placeholder="email" type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}></input>   
+     
+              <input placeholder="password"
+                type="password" value={password}
+                onChange={(e) => setPassword(e.target.value)}></input>
+              
+              <Button onClick={signup}>Singup</Button>
 
+              </form>
     </div>
     </Modal>
       <div className="app_header">
