@@ -4,7 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import './App.css';
 import logo from "./images/logo.png";
 import Post from "./Post.js";
-import {db} from "./firebase"
+import {db,auth} from "./firebase"
 import { Button } from "@material-ui/core";
 function getModalStyle() {
   const top = 50;
@@ -49,8 +49,10 @@ function App() {
       )
     });
   }, []);
-  const signup = () => {
-    
+  const signup = (event) => {
+    event.preventDefault();
+    auth.createUserWithEmailAndPassword(email, password)
+    .catch((error) => alert(error.message))
   }
 
 
