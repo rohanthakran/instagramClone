@@ -1,0 +1,32 @@
+*{
+  margin : 0;
+  padding :0;
+  box-sizing: border-box;
+
+}
+.app{
+  background-color: #fafafa;
+  height:100vh;
+}
+.app_signup{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+}
+.app_signup input{
+  border:none;
+  border-bottom: 2px solid;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin: 0.25rem;
+  min-width: 125px;
+  padding: 0.5rem;
+  outline: none;
+
+}
+.app_header{
+  padding:20px;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  object-fit: contain;
+}
