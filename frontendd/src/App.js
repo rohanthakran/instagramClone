@@ -6,6 +6,7 @@ import logo from "./images/logo.png";
 import Post from "./Post.js";
 import {db,auth} from "./firebase"
 import { Button } from "@material-ui/core";
+import ImageUpload from "./imageUpload.js"
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -101,6 +102,7 @@ function App() {
         {/*File picker ..*/}
         {/*Post Button ..*/}
 
+         
       <Modal
       open={open}
           onClose={() => {
