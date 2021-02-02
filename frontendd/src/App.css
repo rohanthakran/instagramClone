@@ -7,6 +7,8 @@
 .all_post{
   margin: 0 auto;
   max-width: 700px;
+  text-align: center;
+  padding: 20px;
 }
 .app{
   background-color: #fafafa;
@@ -33,5 +35,15 @@
   padding:20px;
   background-color: white;
   border-bottom: 1px solid lightgray;
+  object-fit: contain;
+
+}
+.header {
+  margin: 0 auto;
+  max-width: 700px;
+  display: flex;
+  justify-content: space-between;
+}
+.app_headerImage{
   object-fit: contain;
 }

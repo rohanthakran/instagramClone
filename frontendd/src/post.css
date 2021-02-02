@@ -3,6 +3,7 @@
    max-width: 500px;
    border:1px solid lightgrey;
    margin-bottom: 60px;
+
 }
 .post_image{
     width: 100%;
@@ -21,4 +22,23 @@
 }
 .post_avatar{
     margin-right: 10px;
+}
+.post_comment{
+    display :flex;
+    margin-top: 10px;
+}
+.post__input{
+    flex: 1;
+    border: none;
+    padding : 10px;
+    border-top : 1px solid lightgrey;
+}
+.post__button {
+    flex:0;
+    border: none;
+    border-top : 1px solid lightgrey;
+    cursor: pointer;
+}
+.post__comments{
+   padding: 10px;
 }

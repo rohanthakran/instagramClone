@@ -6,7 +6,9 @@ import logo from "./images/logo.png";
 import Post from "./Post.js";
 import {db,auth} from "./firebase"
 import { Button } from "@material-ui/core";
-import ImageUpload from "./ImageUpload"
+import ImageUpload from "./ImageUpload";
+import InstagramEmbed from 'react-instagram-embed';
+
 
 function getModalStyle() {
   const top = 50;
@@ -172,14 +174,13 @@ function App() {
       
         
   </Modal>
-      <div className="app_header">
+        <div className="app_header">
+          <div className="header">
         <img
           className="app_headerImage"
           alt="Instagram" 
           src={logo}/>
-
-        </div>
-        {user ? (<Button onClick={() => auth.signOut()}>Logout</Button>) :
+          {user ? (<Button onClick={() => auth.signOut()}>Logout</Button>) :
           
           (
             <div className="app_loginContainer">
@@ -189,15 +190,31 @@ function App() {
             
             </div>
           )
-        }
+            }
+            </div>
+        </div>
+        
         <div className="all_post">
         {
           posts.map(({id, post}) => (
-            <Post key={id} username={post.username} caption ={post.caption} imageUrl={post.imageUrl} />
+            <Post key={id} postId ={id} username={post.username} caption ={post.caption} imageUrl={post.imageUrl} />
           ))
         }
         </div>
-      
+       
+        <InstagramEmbed
+        url='https://instagr.am/p/Zw9o4/'
+        clientAccessToken='123|456'
+        maxWidth={320}
+        hideCaption={false}
+        containerTagName='div'
+        protocol=''
+        injectScript
+        onLoading={() => {}}
+        onSuccess={() => {}}
+        onAfterRender={() => {}}
+        onFailure={() => {}}
+      />
        
         {user?.displayName ? (<ImageUpload username={user.displayName} />) : (
           <h3>Sorry you need to login to upload</h3>
