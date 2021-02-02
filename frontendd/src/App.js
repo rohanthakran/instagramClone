@@ -45,7 +45,7 @@ function App() {
   
 
   useEffect(() => {
-    db.collection('posts').onSnapshot(snapshot => {
+    db.collection('posts').orderBy('timestamp','desc').onSnapshot(snapshot => {
       setPosts(snapshot.docs.map(doc => ({
         id: doc.id,
         post: doc.data()
@@ -103,11 +103,7 @@ function App() {
         {/*File picker ..*/}
         {/*Post Button ..*/}
 
-        {user?.displayName ? (<ImageUpload username={user.displayName} />) : (
-          <h3>Sorry you need to login to upload</h3>
-      )}
-        
-         
+      
       <Modal
       open={open}
           onClose={() => {
@@ -194,13 +190,20 @@ function App() {
             </div>
           )
         }
+        <div className="all_post">
         {
           posts.map(({id, post}) => (
             <Post key={id} username={post.username} caption ={post.caption} imageUrl={post.imageUrl} />
           ))
         }
+        </div>
+      
        
-
+        {user?.displayName ? (<ImageUpload username={user.displayName} />) : (
+          <h3>Sorry you need to login to upload</h3>
+      )}
+        
+         
  
     </div> 
 

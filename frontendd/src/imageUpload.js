@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import { storage, db } from "./firebase";
 import firebase from "firebase";
+import "./imageupload.css"
 const ImageUpload = ({username}) => {
 
     const [image, setImage] = useState(null);
@@ -44,17 +45,21 @@ const ImageUpload = ({username}) => {
                         setProgress(0);
                         setCaption("");
                         setImage(null);
+                        setProgress(0);
                 })
                 
             }
         )
     }
    return( 
-    <React.Fragment>
-
-     <input type="text" placeholder="Enter a caption ..." onChange ={event => setCaption(event.target.value)} value={caption}></input>
-    <input type="file" onChange={handleChange} />
-    <button onClick={handleUpload}>Upload</button>
+       <React.Fragment>
+   <div className ="imageUpload">
+        <progress className="image_progress" value={progress} max="100"/>
+        <input type="text" placeholder="Enter a caption ..." onChange ={event => setCaption(event.target.value)} value={caption}></input>
+        <input type="file" onChange={handleChange} />
+        <button onClick={handleUpload}>Upload</button>
+    </div>
+    
    
       
     </React.Fragment>
